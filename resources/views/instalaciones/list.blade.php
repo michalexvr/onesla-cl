@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('title')
-    OneSLA::Clientes
+    OneSLA::Instalaciones
 @endsection
 @section('content')
-<p><h3>Clientes [<a href="{{ url('clientes/add') }}">Añadir</a>]</h3></p>
+<p><h3>Instalaciones [<a href="{{ url('instalaciones/add') }}">Añadir</a>]</h3></p>
 @if( isset($message) )
   <div class="alert alert-{{$message["type"]}}" role="alert">{{ $message["data"] }}</div>
 @endif
@@ -12,44 +12,36 @@
       <thead>
           <tr>
               <th>Id</th>
-              <th>Rut</th>
-              <th>Nombre</th>
-              <th>Giro</th>
-              <th>Dirección</th>
+              <th>Cliente</th>
+              <th>Direccion</th>
+              <th>Oficina</th>
               <th>Telefono</th>
-              <th>Mail</th>
           </tr>
       </thead>
       <tbody>
-          @if( count($clientes) === 0)
+          @if( count($instalaciones) === 0)
           <tr>
               <td colspan="6">
-                  No hay clientes registrados en el sistema.
+                  No hay instalaciones registradas en el sistema.
               </td>
           </tr>
           @else
-            @foreach($clientes as $cliente)
+            @foreach($instalaciones as $instalacion)
             <tr>
                 <td>
-                    {{ $cliente->id }}
+                    {{ $instalacion->id }}
+                </td>                
+                <td>
+                    {{ $instalacion->cliente->nombre }}
                 </td>
                 <td>
-                    {{ $cliente->rut }}
+                    {{ $instalacion->direccion }}
                 </td>
                 <td>
-                    {{ $cliente->nombre }}
+                    {{ $instalacion->oficina }}
                 </td>
                 <td>
-                    {{ $cliente->giro }}
-                </td>
-                <td>
-                    {{ $cliente->direccion }}
-                </td>
-                <td>
-                    {{ $cliente->telefono }}
-                </td>
-                <td>
-                    {{ $cliente->email }}
+                    {{ $instalacion->telefono }}
                 </td>
             </tr>
             @endforeach

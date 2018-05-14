@@ -15,7 +15,7 @@ class ClientesController extends Controller
     }
     
     public function addCliente(){
-        return view("clientes.add-cliente");
+        return view("clientes.add");
     }
     
     public function insertCliente(Request $request){
@@ -25,7 +25,7 @@ class ClientesController extends Controller
         $cliente->direccion = $request->input('direccion');
         $cliente->giro = $request->input('giro');
         $cliente->telefono = $request->input('telefono');
-        $cliente->mail = $request->input('mail');
+        $cliente->email = $request->input('email');
         $message = array("data"=>"Cliente inserto OK", "type"=>"success");
         
         try{

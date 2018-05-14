@@ -65,7 +65,7 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading"><b>OneSLA.com</b></h1>
+            <h1 class="cover-heading"><b>onesla.com</b></h1>
             <p class="lead">Estamos trabajando en algo sorprendente, prontamente novedades!</p>
             <p class="lead">
                 <form action="#" id="elform" method="POST">
@@ -102,6 +102,13 @@
     
     <script>
      $("#send").click(function(){
+         $.post("{{ url('post') }}",$("#elform").serialize(), function(result){
+             $(".ovall").show();
+             $(".ovall").html("<b>Mensaje: </b>"+result);
+         });
+     });
+     $("#elform").submit(function(event){
+         event.preventDefault();         
          $.post("{{ url('post') }}",$("#elform").serialize(), function(result){
              $(".ovall").show();
              $(".ovall").html("<b>Mensaje: </b>"+result);
