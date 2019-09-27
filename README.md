@@ -20,4 +20,7 @@ DB_DATABASE=DB_NAME
 DB_USERNAME=DB_USER
 DB_PASSWORD=DB_PASSWORD
 ```
+On the database directory is located the SQL create schema script, the SQL file with testing data and the model, you can charge it on you db engine.
+
+And use it!
 =======
